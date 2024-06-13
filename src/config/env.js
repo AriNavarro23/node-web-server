@@ -1,14 +1,14 @@
 //se utiliza para manejar las variables de entorno de manera más fácil y segura.
-require('dotenv').config()
+import env from 'dotenv'
+env.config()
 //importa funcion para las variables
-const { get } = require('env-var')
+import envar from 'env-var'
+// web server = const { get } = require('env-var')
 
-const envs = {
-    PORT:get('PORT').required().asPortNumber(),
-    PUBLIC_PATH:get('PUBLIC_PATH').default('public').asString()
+export const envs = {
+    PORT:envar.get('PORT').required().asPortNumber(),
+    PUBLIC_PATH:envar.get('PUBLIC_PATH').default('public').asString()
 }
 
 
-module.exports={
-    envs    
-}
+//web server = module.exports={envs}
